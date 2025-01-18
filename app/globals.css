@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-primary-950;
+  @apply bg-primary-50;
+  @apply dark:bg-primary-950;
+  @apply dark:text-primary-50;
+  font-family: "Urbanist", serif;
+}
