@@ -1,3 +1,5 @@
+"use client";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import {
   CiMedicalClipboard,
@@ -49,7 +51,12 @@ const Account = () => {
             </Link>
           );
         })}
-        <li className="cursor-pointer text-lg flex gap-3 items-center transition-all dark:hover:text-primary-300 w-full font-thin px-8 py-2" onClick={}>
+        <li
+          className="cursor-pointer text-lg flex gap-3 items-center transition-all dark:hover:text-primary-300 w-full font-thin px-8 py-2"
+          onClick={async () => {
+            signOut();
+          }}
+        >
           <CiLogout className="size-8" />
           Logout
         </li>
