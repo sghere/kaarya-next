@@ -1,5 +1,7 @@
+import Link from "next/link";
 import AppLayout from "./components/AppLayout";
 import "./globals.css";
+import SignUp from "./signup/page";
 
 export const metadata = {
   title: "Kaarya",
@@ -10,7 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <AppLayout>{children}</AppLayout>
+        <AppLayout>
+      
+          {children}
+        </AppLayout>
       </body>
     </html>
   );

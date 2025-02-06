@@ -1,5 +1,7 @@
 import { signIn } from "@/auth";
 import Button from "@/common/components/Button";
+import Link from "next/link";
+import SignUp from "../signup/page";
 
 const Login = () => {
   // if (constants.isAuthenticated) return <Navigate to="/" />;
@@ -28,6 +30,7 @@ const Login = () => {
         <Button type="submit" size="large" className="py-4">
           Login
         </Button>
+        <Link href={"/signup"}>Need an account? Sign Up</Link>
       </form>
     </div>
   );
