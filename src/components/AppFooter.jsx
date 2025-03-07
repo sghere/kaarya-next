@@ -12,7 +12,7 @@ const AppFooter = () => {
   return (
     <footer className="footer h-20 flex gap-2 justify-evenly items-center">
       <FooterLink Icon={GoHome} href="/" />
-      <FooterLink Icon={GoBriefcase} href="search" />
+      <FooterLink Icon={GoBriefcase} href="gigs" />
       <FooterLink Icon={GoPlusCircle} href="post" />
       <FooterLink Icon={GoComment} href="messages" />
       <FooterLink Icon={GoPerson} href="profile" />
