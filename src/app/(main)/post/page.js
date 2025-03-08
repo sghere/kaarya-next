@@ -1,9 +1,11 @@
 "use client";
 
+import { postGig } from "@/thunks/apiThunks";
 import { supabase } from "@/utils/supabase";
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 
 const categories = [
   "Web Development",
@@ -21,7 +23,7 @@ const PostGigForm = () => {
   } = useForm();
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const dispatch = useDispatch();
   const uploadImage = async (file) => {
     const fileName = `${Date.now()}-${file.name}`;
     const { data, error } = await supabase.storage
@@ -55,17 +57,19 @@ const PostGigForm = () => {
 
     // TODO: Send `gig` data to your API or Supabase table
     console.log({ sessionData });
-    axios
-      .post("/api/gig", gig, {
-        headers: {
-          Authorization: `Bearer ${sessionData.session.access_token}`,
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        console.log({ res });
-        alert("Gig posted successfully!");
-      });
+    dispatch(postGig(gig));
+
+    // axios
+    //   .post("/api/gig", gig, {
+    //     headers: {
+    //       Authorization: `Bearer ${sessionData.session.access_token}`,
+    //       "Content-Type": "application/json",
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log({ res });
+    //     alert("Gig posted successfully!");
+    //   });
 
     setLoading(false);
   };
