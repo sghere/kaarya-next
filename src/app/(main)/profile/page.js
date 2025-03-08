@@ -12,6 +12,7 @@ const Profile = () => {
         <Link href="profile/account">Account</Link>
         <Link href="profile/notification">Notification</Link>
         <Link href="profile/help">Help</Link>
+        <Link href="profile/credits">Credits</Link>
         <Button
           variant="primary"
           onClick={() => {

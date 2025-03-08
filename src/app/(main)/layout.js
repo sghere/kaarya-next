@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className="size-full">
-      <body className="size-full flex flex-col bg-white text-[#292929] dark:text-white dark:bg-[#292929]">
+      <body className="size-full flex flex-col bg-white text-background-950 dark:text-white dark:bg-background-950">
         <Provider store={store}>
           <AppHeader />
           <div className="AppBody grow">{children}</div>
