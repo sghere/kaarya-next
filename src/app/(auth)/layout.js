@@ -1,3 +1,4 @@
+import "../global.css";
 export const metadata = {
   title: "Auth",
   description: "This is Auth",
@@ -6,7 +7,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="size-full">
-      <body className="size-full flex flex-col bg-white text-[#292929] dark:text-white dark:bg-[#292929]">
+      <body className="size-full grid items-center bg-white text-background-950 dark:text-white dark:bg-background-950">
         <div className="AppBody grow">{children}</div>
       </body>
     </html>

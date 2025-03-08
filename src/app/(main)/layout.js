@@ -1,6 +1,6 @@
 "use client";
 import AppFooter from "@/components/AppFooter";
-import "./globals.css";
+import "../global.css";
 import AppHeader from "@/components/AppHeader";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
