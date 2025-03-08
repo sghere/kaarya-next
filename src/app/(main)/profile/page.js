@@ -1,3 +1,6 @@
+"use client";
+import Button from "@/components/Button";
+import { supabase } from "@/utils/supabase";
 import Link from "next/link";
 
 const Profile = () => {
@@ -9,6 +12,14 @@ const Profile = () => {
         <Link href="profile/account">Account</Link>
         <Link href="profile/notification">Notification</Link>
         <Link href="profile/help">Help</Link>
+        <Button
+          variant="primary"
+          onClick={() => {
+            supabase.auth.signOut();
+          }}
+        >
+          Sign out
+        </Button>
       </div>
     </div>
   );

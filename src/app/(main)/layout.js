@@ -4,8 +4,8 @@ import "../global.css";
 import AppHeader from "@/components/AppHeader";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
-import { getUser } from "@/utils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "@/utils/supabase";
 
 // export const metadata = {
 //   title: "Home",
@@ -13,8 +13,27 @@ import { useEffect } from "react";
 // };
 
 export default function RootLayout({ children }) {
+  const [User, setUser] = useState(null);
   useEffect(() => {
-    getUser();
+    const fetchUser = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setUser(session?.user || null);
+      if (!session?.user) window.location.href = "/login";
+    };
+
+    fetchUser();
+
+    // Listen for auth changes (login/logout)
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setUser(session?.user || null);
+        if (!session?.user) window.location.href = "/login";
+      }
+    );
+
+    return () => authListener.subscription.unsubscribe();
   }, []);
 
   return (
