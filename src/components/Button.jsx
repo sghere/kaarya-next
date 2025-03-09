@@ -31,12 +31,23 @@ const buttonVariants = cva(
   }
 );
 
-export function Button({ variant, size, className, ...props }) {
+export function Button({
+  variant,
+  size,
+  className,
+  loading = false,
+  children,
+  ...props
+}) {
   return (
     <button
-      className={cn(buttonVariants({ variant, size }), className)}
+      className={cn(buttonVariants({ variant, size }), className, {
+        "disabled pointer-events-none cursor-wait": loading,
+      })}
       {...props}
-    />
+    >
+      {loading ? "Loading..." : children}
+    </button>
   );
 }
 
