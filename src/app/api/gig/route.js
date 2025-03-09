@@ -1,7 +1,7 @@
 import { supabase } from "@/utils/supabase";
 
 export async function POST(request) {
-  const data = await request.json();
+  const { type = "GET", data = null } = await request.json();
 
   const authHeader = request.headers.get("Authorization");
   const token = authHeader?.replace("Bearer ", "");
@@ -25,15 +25,13 @@ export async function POST(request) {
       { status: 401 }
     );
   }
-  if (data.user.id) {
+  if (type === "GET") {
     //get gigs for a specific user
-    console.log({ data });
     const { data: gigs, error } = await supabase
       .from("gigs")
       .select("*")
-      .eq("customer_id", data.user.id);
+      .eq("customer_id", user.id);
 
-    console.log({ gigs, error, data });
     if (error) {
       return new Response(
         JSON.stringify({ message: "Error fetching data", error }),
@@ -43,32 +41,36 @@ export async function POST(request) {
 
     return new Response(JSON.stringify({ data: gigs }), { status: 200 });
   }
-  const { error } = await supabase
-    .from("gigs")
-    .insert([{ ...data, customer_id: user.id }]);
+  if (type === "POST") {
+    const { error } = await supabase
+      .from("gigs")
+      .insert([{ ...data, customer_id: user.id }]);
 
-  if (error) {
+    if (error) {
+      return new Response(
+        JSON.stringify({ message: "Error inserting data", error }),
+        { status: 500 }
+      );
+    }
+
     return new Response(
-      JSON.stringify({ message: "Error inserting data", error }),
-      { status: 500 }
+      JSON.stringify({ message: "Data inserted successfully", data }),
+      { status: 200 }
     );
   }
+  if (type === "GETALL") {
+    const { data: gigs, error } = await supabase
+      .from("gigs")
+      .select("*")
+      .neq("customer_id", user.id);
 
-  return new Response(
-    JSON.stringify({ message: "Data inserted successfully", data }),
-    { status: 200 }
-  );
+    if (error) {
+      return new Response(
+        JSON.stringify({ message: "Error fetching data", error }),
+        { status: 500 }
+      );
+    }
+
+    return new Response(JSON.stringify({ data: gigs }), { status: 200 });
+  }
 }
-
-export const GET = async () => {
-  const { data, error } = await supabase.from("gigs").select("*");
-
-  if (error) {
-    return new Response(
-      JSON.stringify({ message: "Error fetching data", error }),
-      { status: 500 }
-    );
-  }
-
-  return new Response(JSON.stringify(data), { status: 200 });
-};

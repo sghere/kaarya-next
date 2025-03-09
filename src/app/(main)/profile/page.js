@@ -22,7 +22,7 @@ const Profile = () => {
         Credits
       </Link>
       <Button
-        variant="solid"
+        variant="failed"
         className="disabled "
         // disabled={true}
         onClick={() => {

@@ -7,17 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 const Gigs = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  console.log({ user });
   useEffect(() => {
-    if (!user.id) return;
     dispatch(
       getGigs({
-        user: {
-          id: user.id,
-        },
+        type: "GET",
       })
     );
-  }, [user]);
+  }, [dispatch]);
   const { data, loading, error } = useApiState("getGigs");
 
   if (loading) return "loading...";
@@ -26,13 +22,13 @@ const Gigs = () => {
   return (
     <div className="grid gap-4 p-4">
       {data?.map((gig) => (
-        <Gig gig={gig} />
+        <Gig key={gig.id} gig={gig} />
       ))}
     </div>
   );
 };
 
-const Gig = ({ gig }) => {
+export const Gig = ({ gig }) => {
   console.log({ gig });
   return (
     <div className="GigCard  p-3 border border-gray-200 rounded-lg">

@@ -43,11 +43,17 @@ const AppHeader = () => {
         className="size-6 cursor-pointer"
         onClick={() => router.back()}
       />
-      <h1 className="text-lg font-semibold text-center">{formattedTitle}</h1>
+      <h1 className="text-lg font-semibold text-center">
+        {headerText[formattedTitle] || formattedTitle}
+      </h1>
       {/* <GoChevronRight className="size-6" /> */}
       <label htmlFor=""></label>
     </header>
   );
+};
+
+const headerText = {
+  Home: "Marketplace",
 };
 
 export default AppHeader;

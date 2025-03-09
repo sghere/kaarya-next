@@ -2,12 +2,13 @@
 
 import Button from "@/components/Button";
 import { supabase } from "@/utils/supabase";
+import Link from "next/link";
 
 const SignUp = () => {
   return (
     <div className="bg-primary-50 p-4 rounded-lg">
-      <h2 className="text-4xl font-medium">Sign Up</h2>
-      <h3 className="text-2xl ">Create an account to get started</h3>
+      <h2 className="text-4xl font-medium">Sign up</h2>
+      <h3 className="text-sm pt-2 ">Create an account to start working</h3>
       <form
         className="pt-4 grid gap-4"
         onSubmit={(e) => {
@@ -28,10 +29,12 @@ const SignUp = () => {
           </label>
           <input
             type="email"
-            className="border h-10 p-2 pl-4 font-medium rounded-lg text-lg border-gray-300"
+            className="border bg-white h-10 p-2 pl-4 font-medium rounded-lg text-lg border-gray-300"
             id="email"
             name="email"
             required
+            autoComplete={"off"}
+            placeholder="example@gmail.com"
           />
         </div>
         <div className="grid gap-1">
@@ -40,14 +43,22 @@ const SignUp = () => {
           </label>
           <input
             type="password"
-            className="border h-10 p-2 pl-4 font-medium rounded-lg text-lg border-gray-300"
+            className="border bg-white h-10 p-2 pl-4 font-medium rounded-lg text-lg border-gray-300"
             id="password"
             name="password"
             required
+            autoComplete="new-password"
+            placeholder="••••••••••••••••"
           />
+          <label className="text-gray-400 text-xs pt-2">
+            Already have an account ?{" "}
+            <Link href="/login" className="text-blue-400 hover:text-blue-500">
+              Sign in
+            </Link>
+          </label>
         </div>
 
-        <Button variant="primary" type="submit">
+        <Button variant="solid" type="submit">
           Sign up
         </Button>
       </form>

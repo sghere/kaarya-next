@@ -14,7 +14,7 @@ export default function ProfileLayout({ children }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBalance({}));
-  }, []);
+  }, [dispatch]);
 
   const { data, loading } = useApiState("getBalance");
   return (

@@ -2,14 +2,16 @@
 
 import Button from "@/components/Button";
 import { supabase } from "@/utils/supabase";
+import Link from "next/link";
 
 const SignIn = () => {
   return (
     <div className="bg-primary-50 p-4 rounded-lg">
-      <h2 className="text-4xl font-medium">Sign In</h2>
+      <h2 className="text-4xl font-medium">Sign in</h2>
       {/* <h3 className="text-2xl ">Create an account to get started</h3> */}
       <form
         className="pt-4 grid gap-4"
+        autoComplete="off"
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
@@ -27,10 +29,11 @@ const SignIn = () => {
           </label>
           <input
             type="email"
-            className="border h-10 p-2 pl-4 font-medium rounded-lg text-lg border-gray-300"
+            className="bg-white border h-10 p-2 pl-4 font-medium rounded-lg text-lg border-gray-300"
             id="email"
             name="email"
             required
+            placeholder="example@gmail.com"
           />
         </div>
         <div className="grid gap-1">
@@ -39,11 +42,18 @@ const SignIn = () => {
           </label>
           <input
             type="password"
-            className="border h-10 p-2 pl-4 font-medium rounded-lg text-lg border-gray-300"
+            className="border bg-white h-10 p-2 pl-4 font-medium rounded-lg text-lg border-gray-300"
             id="password"
             name="password"
             required
+            placeholder="••••••••••••••••"
           />
+          <label className="text-gray-400 text-xs pt-2">
+            Dont have an account ?{" "}
+            <Link href="/signup" className="text-blue-400 hover:text-blue-500">
+              Sign up
+            </Link>
+          </label>
         </div>
 
         <Button variant="solid" type="submit">

@@ -57,7 +57,7 @@ const PostGigForm = () => {
 
     // TODO: Send `gig` data to your API or Supabase table
     console.log({ sessionData });
-    dispatch(postGig(gig));
+    dispatch(postGig({ type: "POST", data: gig }));
 
     // axios
     //   .post("/api/gig", gig, {
