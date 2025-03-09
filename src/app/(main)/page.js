@@ -4,7 +4,7 @@ import useApiState from "@/hooks/useApiState";
 import { getGigs } from "@/thunks/apiThunks";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Gig } from "./gigs/page";
+import { Gig } from "./gigs/Gigs";
 
 export default function Home() {
   const dispatch = useDispatch();
