@@ -15,7 +15,6 @@ export const createThunk = (actionType, url) => {
     };
     try {
       const response = await axios.post(url, params, { headers });
-      console.log({ response });
       if (response.status === 200) {
         return response.data.data;
       } else {
@@ -34,6 +33,18 @@ const apis = [
     actionType: "gig/postGig",
     url: "/api/gig",
   },
+  {
+    actionType: "gig/getGigs",
+    url: "/api/gig",
+  },
+  {
+    actionType: "wallet/getBalance",
+    url: "/api/wallet",
+  },
+  {
+    actionType: "wallet/addBalance",
+    url: "/api/wallet",
+  },
 ];
 
 export const thunks = apis.reduce((acc, api) => {
@@ -43,4 +54,4 @@ export const thunks = apis.reduce((acc, api) => {
   return acc;
 }, {});
 
-export const { postGig } = thunks;
+export const { postGig, getGigs, getBalance, addBalance } = thunks;

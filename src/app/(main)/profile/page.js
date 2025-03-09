@@ -5,23 +5,32 @@ import Link from "next/link";
 
 const Profile = () => {
   return (
-    <div>
-      Profile
-      <div className="grid">
-        <Link href="profile/settings">Settings</Link>
-        <Link href="profile/account">Account</Link>
-        <Link href="profile/notification">Notification</Link>
-        <Link href="profile/help">Help</Link>
-        <Link href="profile/credits">Credits</Link>
-        <Button
-          variant="primary"
-          onClick={() => {
-            supabase.auth.signOut();
-          }}
-        >
-          Sign out
-        </Button>
-      </div>
+    <div className="flex flex-col gap-4 pt-8">
+      <Link href="profile/settings" className="hover:text-primary-700">
+        Settings
+      </Link>
+      <Link href="profile/account" className="hover:text-primary-700">
+        Account
+      </Link>
+      <Link href="profile/notification" className="hover:text-primary-700">
+        Notification
+      </Link>
+      <Link href="profile/help" className="hover:text-primary-700">
+        Help
+      </Link>
+      <Link href="profile/credits" className="hover:text-primary-700">
+        Credits
+      </Link>
+      <Button
+        variant="solid"
+        className="disabled "
+        // disabled={true}
+        onClick={() => {
+          supabase.auth.signOut();
+        }}
+      >
+        Sign out
+      </Button>
     </div>
   );
 };

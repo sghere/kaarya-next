@@ -5,7 +5,7 @@ import { supabase } from "@/utils/supabase";
 
 const SignUp = () => {
   return (
-    <div className="bg-background-950 p-4 rounded-lg">
+    <div className="bg-primary-50 p-4 rounded-lg">
       <h2 className="text-4xl font-medium">Sign Up</h2>
       <h3 className="text-2xl ">Create an account to get started</h3>
       <form

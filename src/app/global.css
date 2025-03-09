@@ -1,18 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 @import "tailwindcss";
+
 nextjs-portal {
   display: none;
 }
 
+html,
+body {
+  font-family: "Quicksand";
+}
+
 @theme {
-  --color-background-50: #f6f6f6;
-  --color-background-100: #e7e7e7;
-  --color-background-200: #d1d1d1;
-  --color-background-300: #b0b0b0;
-  --color-background-400: #888888;
-  --color-background-500: #6d6d6d;
-  --color-background-600: #5d5d5d;
-  --color-background-700: #4f4f4f;
-  --color-background-800: #454545;
-  --color-background-900: #3d3d3d;
-  --color-background-950: #292929;
+  --color-primary-50: #f2f7f4;
+  --color-primary-100: #dfece3;
+  --color-primary-200: #c0dac9;
+  --color-primary-300: #96bfa7;
+  --color-primary-400: #699e81;
+  --color-primary-500: #42765b;
+  --color-primary-600: #35664e;
+  --color-primary-700: #2b513f;
+  --color-primary-800: #244134;
+  --color-primary-900: #1e362b;
+  --color-primary-950: #101e18;
+  --color-secondary-50: #f2f0ef;
+  --color-secondary-100: #ece9e8;
+  --color-secondary-200: #d8d2d0;
+  --color-secondary-300: #c0b6b1;
+  --color-secondary-400: #a59792;
+  --color-secondary-500: #93807c;
+  --color-secondary-600: #867270;
+  --color-secondary-700: #705f5e;
+  --color-secondary-800: #5d4f4f;
+  --color-secondary-900: #4c4242;
+  --color-secondary-950: #282222;
 }

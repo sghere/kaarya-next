@@ -1,8 +1,8 @@
 "use client";
 
+import Button from "@/components/Button";
 import { postGig } from "@/thunks/apiThunks";
 import { supabase } from "@/utils/supabase";
-import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -77,7 +77,7 @@ const PostGigForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="max-w-lg mx-auto p-6 bg-background-950 text-white shadow-md rounded-md"
+      className="max-w-lg mx-auto p-6 bg-primary-50 shadow-md rounded-md flex flex-col gap-4"
     >
       <label className="block mb-2">Title</label>
       <input
@@ -87,10 +87,10 @@ const PostGigForm = () => {
       />
       {errors.title && <p className="text-red-500">{errors.title.message}</p>}
 
-      <label className="block mt-4 mb-2">Category</label>
+      <label className="block ">Category</label>
       <select
         {...register("category")}
-        className="w-full p-2 border border-y bg-background-950 rounded"
+        className="w-full p-2 border border-y bg-primary-50 rounded"
       >
         {categories.map((cat) => (
           <option key={cat} value={cat}>
@@ -99,7 +99,7 @@ const PostGigForm = () => {
         ))}
       </select>
 
-      <label className="block mt-4 mb-2">Budget (₹)</label>
+      <label className="block ">Budget (₹)</label>
       <input
         type="number"
         {...register("budget", { required: "Budget is required" })}
@@ -107,7 +107,7 @@ const PostGigForm = () => {
       />
       {errors.budget && <p className="text-red-500">{errors.budget.message}</p>}
 
-      <label className="block mt-4 mb-2">Description</label>
+      <label className="block ">Description</label>
       <textarea
         {...register("description", { required: "Description is required" })}
         className="w-full p-2 border rounded"
@@ -117,14 +117,14 @@ const PostGigForm = () => {
         <p className="text-red-500">{errors.description.message}</p>
       )}
 
-      <label className="block mt-4 mb-2">Location (City)</label>
+      <label className="block ">Location (City)</label>
       <input
         type="text"
         {...register("location")}
         className="w-full p-2 border rounded"
       />
 
-      {/* <label className="block mt-4 mb-2">Upload Image</label>
+      {/* <label className="block ">Upload Image</label>
       <input
         type="file"
         {...register("image")}
@@ -144,13 +144,14 @@ const PostGigForm = () => {
         />
       )} */}
 
-      <button
+      <Button
+        variant="solid"
+        className="w-full"
         type="submit"
-        className="w-full mt-4 p-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
         disabled={loading}
       >
         {loading ? "Posting..." : "Post Gig"}
-      </button>
+      </Button>
     </form>
   );
 };

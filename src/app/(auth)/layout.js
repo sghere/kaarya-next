@@ -33,8 +33,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className="size-full">
-      <body className="size-full grid items-center bg-white text-background-950 dark:text-white dark:bg-background-950">
-        <div className="AppBody">{children}</div>
+      <body className="size-full grid items-center bg-white text-primary-950 ">
+        <div className="AppBody p-4">{children}</div>
       </body>
     </html>
   ); // No AppHeader or AppFooter
