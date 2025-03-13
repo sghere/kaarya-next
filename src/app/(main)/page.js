@@ -1,10 +1,10 @@
 "use client";
 
+import Gig from "@/components/Gigs/Gig";
 import useApiState from "@/hooks/useApiState";
 import { getGigs } from "@/thunks/apiThunks";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Gig } from "./gigs/Gigs";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ export default function Home() {
   if (error) return "Some error";
   console.log({ data });
   return (
-    <div className="body">
+    <div className="body grid gap-4">
       {data?.map((e) => (
         <Gig key={e.id} gig={e} />
       ))}

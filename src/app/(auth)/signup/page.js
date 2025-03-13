@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/Button";
-import { supabase } from "@/utils/supabase";
+import Button from "@/components/common/Button";
+import { supabase } from "@/lib/utils/supabase";
 import Link from "next/link";
 
 const SignUp = () => {

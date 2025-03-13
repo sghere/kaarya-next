@@ -1,7 +1,7 @@
 "use client";
 
 import { setUser } from "@/redux/slices/userSlice";
-import { supabase } from "@/utils/supabase";
+import { supabase } from "@/lib/utils/supabase";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { GoChevronLeft } from "react-icons/go";

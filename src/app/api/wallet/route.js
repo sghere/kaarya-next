@@ -1,4 +1,4 @@
-import { supabase } from "@/utils/supabase";
+import { supabase } from "@/lib/utils/supabase";
 
 export const POST = async (req) => {
   const { type = "GET", data = null } = await req.json();

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "../global.css";
-import { supabase } from "@/utils/supabase";
+import { supabase } from "@/lib/utils/supabase";
 // export const metadata = {
 //   title: "Auth",
 //   description: "This is Auth",

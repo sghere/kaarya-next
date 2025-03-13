@@ -1,4 +1,4 @@
-import { supabase } from "@/utils/supabase";
+import { supabase } from "@/lib/utils/supabase";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";

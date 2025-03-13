@@ -1,4 +1,4 @@
-import { supabase } from "@/utils/supabase";
+import { supabase } from "@/lib/utils/supabase";
 
 export async function POST(request) {
   const { type = "GET", data = null } = await request.json();
@@ -59,9 +59,10 @@ export async function POST(request) {
     );
   }
   if (type === "GETALL") {
+    console.log("GET ALL GIGS");
     const { data: gigs, error } = await supabase
       .from("gigs")
-      .select("*")
+      .select("*, user:customer_id(id, name, email)")
       .neq("customer_id", user.id);
 
     if (error) {

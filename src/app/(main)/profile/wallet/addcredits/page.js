@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/Button";
+import Button from "@/components/common/Button";
 import useApiState from "@/hooks/useApiState";
 import { addBalance } from "@/thunks/apiThunks";
 import React, { useRef } from "react";

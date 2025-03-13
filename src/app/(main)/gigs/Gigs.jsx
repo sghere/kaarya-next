@@ -1,4 +1,5 @@
 "use client";
+import Gig from "@/components/Gigs/Gig";
 import useApiState from "@/hooks/useApiState";
 import { getGigs } from "@/thunks/apiThunks";
 import { useEffect } from "react";
@@ -24,16 +25,6 @@ const Gigs = () => {
       {data?.map((gig) => (
         <Gig key={gig.id} gig={gig} />
       ))}
-    </div>
-  );
-};
-
-export const Gig = ({ gig }) => {
-  console.log({ gig });
-  return (
-    <div className="GigCard  p-3 border border-gray-200 rounded-lg">
-      <h2>{gig.title}</h2>
-      <p>{gig.description}</p>
     </div>
   );
 };

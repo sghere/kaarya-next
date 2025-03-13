@@ -1,7 +1,7 @@
 "use client";
-import AppFooter from "@/components/AppFooter";
+import AppFooter from "@/components/Layouts/AppFooter";
 import "../global.css";
-import AppHeader from "@/components/AppHeader";
+import AppHeader from "@/components/Layouts/AppHeader";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 import { Suspense } from "react";

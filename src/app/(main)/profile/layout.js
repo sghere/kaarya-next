@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/Button";
+import Button from "@/components/common/Button";
 import useApiState from "@/hooks/useApiState";
 import { getBalance } from "@/thunks/apiThunks";
 import Link from "next/link";

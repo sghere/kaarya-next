@@ -1,8 +1,8 @@
 "use client";
 
-import Button from "@/components/Button";
+import Button from "@/components/common/Button";
 import { postGig } from "@/thunks/apiThunks";
-import { supabase } from "@/utils/supabase";
+import { supabase } from "@/lib/utils/supabase";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
