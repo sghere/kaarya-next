@@ -54,6 +54,7 @@ const AppHeader = () => {
 
 const headerText = {
   Home: "Marketplace",
+  Gigs: "My Gigs",
 };
 
 export default AppHeader;

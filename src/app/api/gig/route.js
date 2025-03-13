@@ -29,7 +29,7 @@ export async function POST(request) {
     //get gigs for a specific user
     const { data: gigs, error } = await supabase
       .from("gigs")
-      .select("*")
+      .select("*, user:customer_id(id, name, email)")
       .eq("customer_id", user.id);
 
     if (error) {

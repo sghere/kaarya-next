@@ -21,7 +21,7 @@ const Gigs = () => {
   if (error) return "Some error";
 
   return (
-    <div className="grid gap-4 p-4">
+    <div className="grid gap-4 ">
       {data?.map((gig) => (
         <Gig key={gig.id} gig={gig} />
       ))}
