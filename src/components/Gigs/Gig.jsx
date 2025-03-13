@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "../common/Button";
 import { formatDateTime } from "@/lib/utils/utils";
+import { GoLocation } from "react-icons/go";
 
 const Gig = ({ gig }) => {
   return (
-    <div className="GigCard shadow border-l-15 py-7 px-5 border-l-primary-600  border bg-white border-gray-200 rounded-lg hover:bg-gray-50 transition">
+    <div className="GigCard shadow border-l-8 py-7 px-5 border-l-primary-600  border bg-white border-gray-200 rounded-lg hover:bg-gray-50 transition">
       <div className="flex justify-between gap-10">
         <div className="details grid gap-2">
           <p className="text-gray-400 text-xs">{gig.category}</p>
@@ -13,11 +14,15 @@ const Gig = ({ gig }) => {
           </h2>
           <p>{gig.description}</p>
           <hr className="border-primary-100" />
-          <div className="flex">
-            <p className="text-xs">
-              {formatDateTime(gig.created_at)} | by {gig.user.email}
+          <p className="text-xs">
+            {formatDateTime(gig.created_at)} | by {gig.user.email}
+          </p>
+          {gig?.location && (
+            <p className="text-xs flex gap-1 items-center">
+              <GoLocation />
+              {gig?.location}
             </p>
-          </div>
+          )}
         </div>
         <div className="Budget flex flex-col justify-between gap-2">
           <h4 className="font-bold text-xl">

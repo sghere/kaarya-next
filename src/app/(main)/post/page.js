@@ -50,6 +50,7 @@ const PostGigForm = () => {
       category: data.category,
       budget: data.budget,
       description: data.description,
+      location: data.location,
       created_at: new Date().toISOString(),
     };
 
